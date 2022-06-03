@@ -103,7 +103,7 @@ ________________________________________________________________________________
 
 
 <details>
-<summary markdown="span"> 🔸Home Assistant OS VM</summary>
+<summary markdown="span"> Home Assistant OS VM</summary>
  
 <p align="center"><img src="https://github.com/tteck/Proxmox/blob/main/misc/images/haos.png?raw=true"/></p>
  
@@ -1474,7 +1474,7 @@ ________________________________________________________________________________
 </details>
 
 <details>
-<summary markdown="span"> 🔸File Browser</summary>
+<summary markdown="span"> File Browser</summary>
  
 <p align="center"><img src="https://github.com/tteck/Proxmox/blob/main/misc/images/filebrowser.png?raw=true" height="100"/></p>
 
@@ -1611,7 +1611,28 @@ ________________________________________________________________________________
 </details>
 
 <details>
-<summary markdown="span"> 🔸Keycloak LXC</summary>
+<summary markdown="span"> 🔸CrowdSec</summary>
+ 
+<p align="center"><img src="https://raw.githubusercontent.com/crowdsecurity/crowdsec-docs/main/crowdsec-docs/static/img/crowdsec_no_txt.png?raw=true" height="100"/></p>
+
+<h1 align="center" id="heading"> CrowdSec</h1>
+
+To Install CrowdSec, ⚠️ run the following in the LXC console.
+
+```yaml
+bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/crowdsec-v3.sh)"
+```
+
+[CrowdSec](https://crowdsec.net/) is a free, open-source and collaborative IPS. Analyze behaviors, respond to attacks & share signals across the community.
+
+[**Control center for your CrowdSec machines.**](https://app.crowdsec.net/product-tour)
+
+___________________________________________________________________________________________ 
+
+</details>
+
+<details>
+<summary markdown="span"> Keycloak LXC</summary>
  
 <p align="center"><img src="https://www.keycloak.org/resources/images/keycloak_icon_512px.svg?raw=true" height="100"/></p>
 
@@ -1655,28 +1676,26 @@ ________________________________________________________________________________
 </details>
 
 <details>
-<summary markdown="span"> Vaultwarden LXC</summary>
+<summary markdown="span"> 🔸Vaultwarden LXC</summary>
  
 <p align="center"><img src="https://raw.githubusercontent.com/dani-garcia/vaultwarden/main/resources/vaultwarden-icon-white.svg" width="100" height="100"/></p>
 
 <h1 align="center" id="heading"> Vaultwarden LXC </h1>
 
+Alternative implementation of the Bitwarden server API written in Rust and compatible with upstream [Bitwarden clients](https://bitwarden.com/download/), perfect for self-hosted deployment where running the official resource-heavy service might not be ideal.
+ 
 To create a new Proxmox Vaultwarden LXC, run the following in the Proxmox Shell.
 
 ```yaml
 bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/vaultwarden-v3.sh)"
 ```
 ⚠️ Vaultwarden needs to be behind a proxy (Nginx Proxy Manager) to obtain HTTPS and to allow clients to connect.
- 
-⚠️ If you find the Vaultwarden Interface unreachable,  `nano /etc/vaultwarden.env` and uncomment `ROCKET_ADDRESS=0.0.0.0` and reboot
 
-It builds from source, which takes time and resources. After the installation, resources can be set to Normal Settings. 
+The script builds from source, which takes time and resources. After the build, the script will automatically set resources to Normal Settings. 
 
 Expect 30+ minute install time.
-<h3 align="center" id="heading">⚡ Normal Settings:  512Mib RAM - 8GB Storage - 1vCPU ⚡</h3>
+<h3 align="center" id="heading">⚡ Normal Settings:  512Mib RAM - 6GB Storage - 1vCPU ⚡</h3>
 
-[Clients](https://bitwarden.com/download/)
- 
 **Vaultwarden Interface - IP:8000**
 
 ⚙️ **To Update Vaultwarden**
